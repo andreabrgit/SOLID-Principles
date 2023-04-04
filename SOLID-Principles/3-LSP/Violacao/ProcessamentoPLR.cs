@@ -1,6 +1,6 @@
 ﻿namespace SOLID_Principles.LSP.Violacao
 {
-  public class ProcessamentoMensal
+  public class ProcessamentoPLR
   {
     public static decimal CalculaPLR(Funcionario funcionario)
     {

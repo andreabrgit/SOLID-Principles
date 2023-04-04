@@ -1,6 +1,6 @@
 ﻿namespace SOLID_Principles.LSP.Solucao
 {
-  public class ProcessamentoMensal
+  public class ProcessamentoPLR
   {
     public static decimal CalculaPLR(ElegivelPLR elegivelPLR)
     {
@@ -23,7 +23,7 @@
 
   }
 
-  public class Gerente : ElegivelPLR
+  public class Gerente : Funcionario, ElegivelPLR
   {
     public decimal MultiplicadorPLR()
     {
