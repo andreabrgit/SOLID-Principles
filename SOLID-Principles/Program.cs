@@ -51,7 +51,7 @@ while (opcao.ToUpper() != "Q")
       cliente.AdicionarCliente();
       Console.Clear();
       break;
-    
+
     case "3":
       ViolacaoSRP.ClienteMelhorado clienteMelhorado = new ViolacaoSRP.ClienteMelhorado("1", "Nome Teste");
       clienteMelhorado.AdicionarCliente();
@@ -78,14 +78,34 @@ while (opcao.ToUpper() != "Q")
     case "6":
       ViolacaoOCP.DebitoConta debitoConta = new ViolacaoOCP.DebitoConta();
       debitoConta.Debitar(5, "1234", ViolacaoOCP.TipoConta.Corrente);
+
+      var devRelatorios = new List<ViolacaoOCP.DesenvolvedorRelatorio>
+      {
+        new ViolacaoOCP.DesenvolvedorRelatorio {Id = 1, Nome = "Dev1", Nivel = "Senior developer", TaxaDaHora  = 30.5, HorasDeTrabalho = 160 }, //4880
+        new ViolacaoOCP.DesenvolvedorRelatorio {Id = 2, Nome = "Dev2", Nivel = "Junior developer", TaxaDaHora  = 20, HorasDeTrabalho = 150 }, //3000
+        new ViolacaoOCP.DesenvolvedorRelatorio {Id = 3, Nome = "Dev3", Nivel = "Senior developer", TaxaDaHora  = 30.5, HorasDeTrabalho = 180 } //5490
+      };
+      var calculadora = new ViolacaoOCP.CalculadoraDeSalario(devRelatorios);
+      Console.WriteLine($"Soma do salário de todos os desenvolvedores é {calculadora.CalcularTotalSalarios()} reais");
+      Console.ReadKey();
       Console.Clear();
       break;
-    
+
     case "7":
       DebitoConta debitoContaSolucao = new DebitoContaCorrente();
       debitoContaSolucao.Debitar(5, "1234");
       debitoContaSolucao = new DebitoContaPoupanca();
       debitoContaSolucao.Debitar(5, "1234");
+
+      var devCalculadoras = new List<CalculadoraSalarioBase>
+      {
+        new SeniorCalculadoraSalario(new DesenvolvedorRelatorio {Id = 1, Nome = "Dev1", Nivel = "Senior developer", TaxaDaHora  = 30.5, HorasDeTrabalho = 160 }), //4880
+        new JuniorCalculadoraSalario(new DesenvolvedorRelatorio {Id = 2, Nome = "Dev2", Nivel = "Junior developer", TaxaDaHora  = 20, HorasDeTrabalho = 150 }), //3000
+        new SeniorCalculadoraSalario(new DesenvolvedorRelatorio {Id = 3, Nome = "Dev3", Nivel = "Senior developer", TaxaDaHora  = 30.5, HorasDeTrabalho = 180 }) //5490
+      };
+      var calculadoraSolucao = new CalculadoraDeSalario(devCalculadoras);
+      Console.WriteLine($"Soma do salário de todos os desenvolvedores é {calculadoraSolucao.CalcularTotalSalarios()} reais");
+      Console.ReadKey();
       Console.Clear();
       break;
 
@@ -102,17 +122,17 @@ while (opcao.ToUpper() != "Q")
       ViolacaoLSP.Retangulo retangulo = new ViolacaoLSP.Retangulo();
       retangulo.Altura = 5;
       Console.WriteLine($"Altura do retângulo: {retangulo.Altura}");
-      retangulo.Largura = 4;      
+      retangulo.Largura = 4;
       Console.WriteLine($"Largura do retângulo: {retangulo.Largura}");
       Console.WriteLine(ViolacaoLSP.CalculoArea.TestarCalcularAreaRetangulo(retangulo));
       ViolacaoLSP.Quadrado quadrado = new ViolacaoLSP.Quadrado();
       quadrado.Altura = 5;
       Console.WriteLine($"Altura do quadrado: {quadrado.Altura}");
-      quadrado.Largura = 4;      
-      Console.WriteLine($"Largura do quadrado: {quadrado.Largura}");      
+      quadrado.Largura = 4;
+      Console.WriteLine($"Largura do quadrado: {quadrado.Largura}");
       Console.WriteLine(ViolacaoLSP.CalculoArea.TestarCalcularAreaRetangulo(quadrado));
       Console.ReadKey();
-      
+
       ViolacaoLSP.Funcionario funcionario = new ViolacaoLSP.Gerente();
       Console.WriteLine(ViolacaoLSP.ProcessamentoPLR.CalculaPLR(funcionario));
       funcionario = new ViolacaoLSP.Estagiario();
@@ -120,7 +140,7 @@ while (opcao.ToUpper() != "Q")
       Console.ReadKey();
       Console.Clear();
       break;
-    
+
     case "10":
       ElegivelPLR elegivelPLR = new Gerente();
       Console.WriteLine(ProcessamentoPLR.CalculaPLR(elegivelPLR));
@@ -138,7 +158,7 @@ while (opcao.ToUpper() != "Q")
 
     case "12":
       Console.Clear();
-      break;    
+      break;
 
     case "13":
       Console.Clear();
@@ -154,7 +174,7 @@ while (opcao.ToUpper() != "Q")
 
     case "15":
       Console.Clear();
-      break;    
+      break;
 
     case "16":
       Console.Clear();
