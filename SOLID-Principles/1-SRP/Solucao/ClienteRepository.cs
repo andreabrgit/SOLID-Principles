@@ -29,8 +29,6 @@ namespace SOLID_Principles.SRP.Solucao
           cmd.ExecuteNonQuery();
           cn.Close();
         }
-
-        //_mailService.SendMail(); FALAR SOBRE
       }
       catch (Exception)
       {

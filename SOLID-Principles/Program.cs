@@ -41,7 +41,7 @@ while (opcao.ToUpper() != "Q")
   {
     //================== SRP ===========================
     case "1":
-      Console.WriteLine("1 - Single Responsibility Principle: Uma classe deve ter um, e somente um, motivo para mudar");
+      Console.WriteLine("Single Responsibility Principle: Uma classe deve ter um, e somente um, motivo para mudar");
       Console.ReadKey();
       Console.Clear();
       break;
@@ -70,7 +70,7 @@ while (opcao.ToUpper() != "Q")
 
     //================== OCP ===========================
     case "5":
-      Console.WriteLine("4 - Open-closed Principle: Objetos ou entidades devem estar abertos para extensão, mas fechados para modificação");
+      Console.WriteLine("Open-closed Principle: Objetos ou entidades devem estar abertos para extensão, mas fechados para modificação");
       Console.ReadKey();
       Console.Clear();
       break;
