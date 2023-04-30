@@ -2,8 +2,10 @@
 using ViolacaoSRP = SOLID_Principles.SRP.Violacao;
 using ViolacaoOCP = SOLID_Principles.OCP.Violacao;
 using ViolacaoLSP = SOLID_Principles.LSP.Violacao;
+using ViolacaoISP = SOLID_Principles.ISP.Violacao;
 using SOLID_Principles.OCP.Solucao;
 using SOLID_Principles.LSP.Solucao;
+using SOLID_Principles.ISP.Solucao;
 
 string opcao = string.Empty;
 
@@ -157,10 +159,32 @@ while (opcao.ToUpper() != "Q")
       break;
 
     case "12":
+      ViolacaoISP.Client client = new ViolacaoISP.Client();
+      ViolacaoISP.HpLaserJetPrinter hpLaserJet = new ViolacaoISP.HpLaserJetPrinter();
+      client.Print(hpLaserJet);
+      client.EnviarFax(hpLaserJet);
+      client.ImprimirDoisLados(hpLaserJet);
+      Console.ReadKey();
+      ViolacaoISP.LiquidInkJetPrinter inkJet = new ViolacaoISP.LiquidInkJetPrinter();
+      client.Print(inkJet);
+      client.EnviarFax(inkJet);
+      client.ImprimirDoisLados(inkJet);
+      Console.ReadKey();
       Console.Clear();
       break;
 
     case "13":
+      Client clientPrint = new Client();
+      HpLaserJetPrinter hpLaserJetPrinter = new HpLaserJetPrinter();
+      clientPrint.Print(hpLaserJetPrinter);
+      clientPrint.EnviarFax(hpLaserJetPrinter);
+      clientPrint.ImprimirDoisLados(hpLaserJetPrinter);
+      Console.ReadKey();
+      LiquidInkJetPrinter inkJetPrinter = new LiquidInkJetPrinter();
+      clientPrint.Print(inkJetPrinter);
+      //clientPrint.EnviarFax(inkJetPrinter);
+      //clientPrint.ImprimirDoisLados(inkJetPrinter);
+      Console.ReadKey();
       Console.Clear();
       break;
 
