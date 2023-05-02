@@ -1,5 +1,13 @@
 ﻿namespace SOLID_Principles.OCP.Solucao
 {
+  public class OperacaoFinanceira
+  {
+    public void RealizarDebito(DebitoConta debitoConta)
+    {
+      debitoConta.Debitar(5, "1234");
+    }
+  }
+  
   public abstract class DebitoConta
   {
     public string NumeroTransacao { get; set; }
