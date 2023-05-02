@@ -1,9 +1,14 @@
 ﻿using System.Net.Mail;
 using System.Net;
 
-namespace SOLID_Principles.SRP.Solucao
+namespace SOLID_Principles.DIP.Solucao
 {
-  public class MailService
+  public interface IMailService
+  {
+    void SendMail();
+  }
+
+  public class MailService: IMailService
   {
     public void SendMail()
     {

@@ -1,11 +1,13 @@
-﻿using SOLID_Principles.SRP.Solucao;
-using ViolacaoSRP = SOLID_Principles.SRP.Violacao;
+﻿using ViolacaoSRP = SOLID_Principles.SRP.Violacao;
 using ViolacaoOCP = SOLID_Principles.OCP.Violacao;
 using ViolacaoLSP = SOLID_Principles.LSP.Violacao;
 using ViolacaoISP = SOLID_Principles.ISP.Violacao;
+using ViolacaoDIP = SOLID_Principles.DIP.Violacao;
+using SolucaoSRP = SOLID_Principles.SRP.Solucao;
 using SOLID_Principles.OCP.Solucao;
 using SOLID_Principles.LSP.Solucao;
 using SOLID_Principles.ISP.Solucao;
+using SolucaoDIP = SOLID_Principles.DIP.Solucao;
 
 string opcao = string.Empty;
 
@@ -61,10 +63,11 @@ while (opcao.ToUpper() != "Q")
       break;
 
     case "4":
-      Cliente clienteSolucao = new Cliente("1", "Nome Teste");
-      ClienteRepository clienteRepository = new ClienteRepository();
-      MailService mailService = new MailService();
-      ClienteService clienteService = new ClienteService(clienteRepository, mailService);
+      SolucaoSRP.Cliente clienteSolucao = new SolucaoSRP.Cliente("1", "Nome Teste");
+      //ClienteRepository clienteRepository = new ClienteRepository();
+      //MailService mailService = new MailService();
+      //ClienteService clienteService = new ClienteService(clienteRepository, mailService);
+      SolucaoSRP.ClienteService clienteService = new SolucaoSRP.ClienteService();
       clienteService.AdicionarCliente(clienteSolucao);
       Console.Clear();
       break;
@@ -192,15 +195,25 @@ while (opcao.ToUpper() != "Q")
     //================== DIP ===========================
     case "14":
       Console.WriteLine("Dependency Inversion Principle: Dependa de abstrações e não de implementações");
+      Console.WriteLine("Módulos de alto nível não devem depender de módulos de baixo nível. Ambos devem depender da abstração");
       Console.ReadKey();
       Console.Clear();
       break;
 
     case "15":
+      ViolacaoDIP.Cliente clienteViolacaoDIP = new ViolacaoDIP.Cliente("1", "Nome Teste");
+      ViolacaoDIP.ClienteService clienteServiceViolacaoDIP = new ViolacaoDIP.ClienteService();
+      clienteServiceViolacaoDIP.AdicionarCliente(clienteViolacaoDIP);
       Console.Clear();
       break;
 
     case "16":
+      SolucaoDIP.Cliente clienteSolucaoDIP = new SolucaoDIP.Cliente("1", "Nome Teste");
+      SolucaoDIP.IClienteRepository clienteRepository = new SolucaoDIP.ClienteRepository();
+      //SolucaoDIP.IClienteRepository clienteRepository = new SolucaoDIP.ClienteMySQLRepository();
+      SolucaoDIP.MailService mailService = new SolucaoDIP.MailService();
+      SolucaoDIP.ClienteService clienteServiceSolucaoDIP = new SolucaoDIP.ClienteService(clienteRepository, mailService);
+      clienteServiceSolucaoDIP.AdicionarCliente(clienteSolucaoDIP);
       Console.Clear();
       break;
 

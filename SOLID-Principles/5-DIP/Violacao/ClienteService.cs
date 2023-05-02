@@ -1,4 +1,4 @@
-﻿namespace SOLID_Principles.SRP.Solucao
+﻿namespace SOLID_Principles.DIP.Violacao
 { 
   public class ClienteService
   {
