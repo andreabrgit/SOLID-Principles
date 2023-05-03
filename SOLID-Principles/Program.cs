@@ -115,7 +115,7 @@ while (opcao.ToUpper() != "Q")
     case "8":
       Console.WriteLine("Liskov Substitution Principle: Se para cada objeto o1 do tipo S há um objeto o2 do tipo T de forma que, para todos os programas P definidos em termos de T, o comportamento de P é inalterado quando o1 é substituído por o2 então S é um subtipo de T");
       Console.WriteLine();
-      Console.WriteLine("se S é um subtipo de T, então os objetos do tipo T, em um programa, podem ser substituídos pelos objetos de tipo S sem que seja necessário alterar as propriedades deste programa.");
+      Console.WriteLine("As classes derivadas devem ser substituíveis por suas classes bases.");
       Console.ReadKey();
       Console.Clear();
       break;
@@ -216,6 +216,7 @@ while (opcao.ToUpper() != "Q")
 
 
     default:
+      Console.Clear();
       break;
   }
 }
