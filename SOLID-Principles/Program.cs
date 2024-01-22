@@ -30,7 +30,7 @@ while (opcao.ToUpper() != "Q")
   Console.WriteLine("12 - Interface Segregation Principle - Violação");
   Console.WriteLine("13 - Interface Segregation Principle - Solução");
   Console.WriteLine("--------------------------------------------------------");
-  Console.WriteLine("14 - Dependency Inversion Principle - Violação");
+  Console.WriteLine("14 - Dependency Inversion Principle - Conceito");
   Console.WriteLine("15 - Dependency Inversion Principle - Violação");
   Console.WriteLine("16 - Dependency Inversion Principle - Solução");
   Console.WriteLine("--------------------------------------------------------");
